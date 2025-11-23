@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>itsaugvst0x01 - links</title>
+    <link rel="shortcut icon" href="Media/avatartion.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/fc8a02832e.js" crossorigin="anonymous"></script>
 
     <style>
@@ -38,14 +39,21 @@
             background: rgba(255,255,255,0.55);
             box-shadow: 0 25px 50px rgba(0,0,0,0.08);
             border: 1px solid rgba(255,255,255,0.55);
+
+            opacity: 0;
+            transform: translateY(22px) scale(0.985);
+            transition: opacity .8s ease, transform .8s cubic-bezier(.16,.82,.29,1);
         }
 
-        /* Section rhythm */
+        .container.loaded {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
         .section {
             margin-bottom: 55px;
         }
 
-        /* Profile section */
         .profile-wrapper {
             text-align: center;
         }
@@ -62,7 +70,7 @@
         }
 
         .title {
-            font-size: 1.65rem;
+            font-size: 1.42rem;
             font-weight: 700;
             margin-bottom: 10px;
             letter-spacing: 0.3px;
@@ -75,30 +83,38 @@
             line-height: 1.55rem;
         }
 
-        /* Subtle F1 accent bar */
+        /* Sakura striped accent bar — now fully responsive */
         .accent-bar {
-            width: 85px;
-            height: 3px;
-            margin: 0 auto 28px auto;
-            border-radius: 30px;
-            background: linear-gradient(90deg, #ba0000, #002b6b);
-            opacity: 0.18;
+            width: min(320px, 90%);
+            height: 5px;
+            margin: 0 auto 8px auto;
+            border-radius: 40px;
+
+            background-size: 200% 100%;
+            background-image: repeating-linear-gradient(
+                135deg,
+                #ffb7c5 0px,
+                #ffb7c5 10px,
+                #ff7aa2 10px,
+                #ff7aa2 20px,
+                #e95f98 20px,
+                #e95f98 30px
+            );
+
+            animation: sakuraStripe 3.5s linear infinite;
+            opacity: 0.55;
         }
 
-        .bio {
-            font-size: 1rem;
-            line-height: 1.55rem;
-            opacity: 0.9;
-            text-align: center;
-            padding: 0 8px;
+        @keyframes sakuraStripe {
+            0% { background-position: 0 0; }
+            100% { background-position: 200% 0; }
         }
 
-        /* Links section */
         .links-section {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
         .link-btn {
@@ -135,71 +151,35 @@
             font-size: 0.9rem;
         }
 
-        /* Scroll fade-in effect */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(12px);
-            animation: fadeUp .8s ease forwards;
-        }
-
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(22px) scale(0.97);
-                filter: blur(4px);
-            }
-            55% {
-                opacity: 1;
-                transform: translateY(6px) scale(1.015);
-                filter: blur(1px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-                filter: blur(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(22px);
-            animation: fadeUp 1.15s cubic-bezier(0.18, 0.9, 0.28, 1) forwards;
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(18px);
-            animation: fadeUp .9s cubic-bezier(0.15, 0.85, 0.3, 1) forwards;
-        }
-
-        /* Responsive */
         @media (max-width: 480px) {
-            .title { font-size: 1.45rem; }
+            body { padding: 35px 16px; }
+
+            .title { font-size: 1.35rem; }
             .subtitle { font-size: 0.95rem; }
-            .bio { font-size: 0.95rem; }
-            .link-btn { font-size: 1rem; padding: 14px 16px; }
+
+            .link-btn {
+                font-size: 0.98rem;
+                padding: 14px 16px;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
 
-        <!-- Profile Section -->
-        <div class="section profile-wrapper fade-in">
-            <img src="Media/profile.jpg" alt="Profile" class="profile-img" />
+        <div class="section profile-wrapper">
+            <img src="Media/avatartion.png" alt="Profile" class="profile-img" />
 
-            <div class="title">Mechatronics Eng. Student | CS Graduate</div>
-            <div class="subtitle">Exploring the precise meeting point between code, movement, and design...</div>
+            <div class="title">CS Graduate | Mechatronics Eng. Student</div>
+            <div class="subtitle">
+                I am fascinated by Formula 1 and the purpose of biomedical technology; both remind me that progress is in the details.
+            </div>
 
             <div class="accent-bar"></div>
-
-            <div class="bio">
-                I am fascinated by the discipline of Formula 1 and the purpose of biomedical technology; both remind me that progress lies in the details.
-            </div>
         </div>
 
-        <!-- Links Section -->
-        <div class="section links-section fade-in" style="animation-delay: .2s;">
+        <div class="section links-section">
 
             <a href="https://www.threads.com/@itsaugvst0x01" class="link-btn" target="_blank">
                 <div class="icon-label"><i class="fa-brands fa-threads"></i> Threads</div>
@@ -208,6 +188,11 @@
 
             <a href="https://www.instagram.com/itsaugvst0x01/" class="link-btn" target="_blank">
                 <div class="icon-label"><i class="fa-brands fa-instagram"></i> Instagram</div>
+                <span class="meta">@itsaugvst0x01</span>
+            </a>
+
+            <a href="https://www.tiktok.com/@itsaugvst0x01" class="link-btn" target="_blank">
+                <div class="icon-label"><i class="fa-brands fa-bluesky"></i> BlueSky</div>
                 <span class="meta">@itsaugvst0x01</span>
             </a>
 
@@ -221,21 +206,22 @@
                 <span class="meta">@itsaugvst0x01</span>
             </a>
 
-            <a href="https://www.tiktok.com/@itsaugvst0x01" class="link-btn" target="_blank">
-                <div class="icon-label"><i class="fa-brands fa-tiktok"></i> TikTok</div>
-                <span class="meta">@itsaugvst0x01</span>
-            </a>
-
         </div>
 
-    <!-- Footer moved inside container for cleaner UX -->
         <footer style="text-align:center; margin-top:32px; opacity:0.55; font-size:0.85rem; padding-bottom:6px;">
             © 2025 itsaugvst0x01 — MIT License
         </footer>
 
     </div>
 
+    <script>
+        window.addEventListener("load", () => {
+            const card = document.querySelector(".container");
+            if (card) {
+                setTimeout(() => card.classList.add("loaded"), 80);
+            }
+        });
+    </script>
 
-    </div>
 </body>
 </html>
