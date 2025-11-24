@@ -1,6 +1,3 @@
-### Description
-This is my personal link-in-bio page designed with a minimalist and elegant approach. It serves as a central hub featuring my profile with links to various social and professional platforms.
-
 ### Features
 - Responsive design that adapts to different devices
 
