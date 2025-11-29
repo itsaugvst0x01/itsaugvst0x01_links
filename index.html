@@ -21,24 +21,29 @@
             font-family: "Questrial", sans-serif;
         }
 
+        /* BACKGROUND — negro profundo con degradado púrpura ultra sutil */
         body {
-            background: #f5f5f7;
-            color: #111;
+            background: linear-gradient(135deg, #05040A, #080010, #0A0015);
+            color: #e8e1ff;
             display: flex;
             justify-content: center;
             padding: 50px 20px;
+            min-height: 100vh;
         }
 
+        /* CARD — glassmorphism oscuro sofisticado */
         .container {
             width: 100%;
             max-width: 520px;
             padding: 22px 18px 45px 18px;
             border-radius: 28px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            background: rgba(255,255,255,0.55);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.08);
-            border: 1px solid rgba(255,255,255,0.55);
+
+            background: rgba(25, 0, 40, 0.22);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            border: 1px solid rgba(120, 0, 200, 0.22);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.65);
 
             opacity: 0;
             transform: translateY(22px) scale(0.985);
@@ -51,9 +56,10 @@
         }
 
         .section {
-            margin-bottom: 55px;
+            margin-bottom: 50px;
         }
 
+        /* PROFILE */
         .profile-wrapper {
             text-align: center;
         }
@@ -65,51 +71,38 @@
             object-fit: cover;
             display: block;
             margin: 0 auto 22px auto;
-            border: 0.6px solid rgba(0,0,0,0.07);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+
+            border: 2px solid rgba(120, 0, 200, 0.35);
+            box-shadow: 0 8px 22px rgba(90, 0, 150, 0.28);
         }
 
         .title {
             font-size: 1.42rem;
             font-weight: 700;
+            letter-spacing: 0.4px;
+            color: #e9ddff;
             margin-bottom: 10px;
-            letter-spacing: 0.3px;
         }
 
         .subtitle {
             font-size: 1.05rem;
-            opacity: 0.75;
-            margin-bottom: 26px;
+            opacity: 0.78;
+            margin-bottom: 25px;
             line-height: 1.55rem;
+            color: #c9b8ea;
         }
 
-        /* Sakura striped accent bar — now fully responsive */
+        /* ACCENT BAR — ahora sin brillo exagerado, elegante, profundo */
         .accent-bar {
             width: min(320px, 90%);
-            height: 5px;
-            margin: 0 auto 8px auto;
+            height: 4px;
+            margin: 0 auto 10px auto;
             border-radius: 40px;
-
-            background-size: 200% 100%;
-            background-image: repeating-linear-gradient(
-                135deg,
-                #ffb7c5 0px,
-                #ffb7c5 10px,
-                #ff7aa2 10px,
-                #ff7aa2 20px,
-                #e95f98 20px,
-                #e95f98 30px
-            );
-
-            animation: sakuraStripe 3.5s linear infinite;
+            background: linear-gradient(90deg, #4c008c, #6f19c7, #430071);
             opacity: 0.55;
         }
 
-        @keyframes sakuraStripe {
-            0% { background-position: 0 0; }
-            100% { background-position: 200% 0; }
-        }
-
+        /* LINKS — ahora más premium, sin glow chillón */
         .links-section {
             display: flex;
             flex-direction: column;
@@ -118,26 +111,30 @@
         }
 
         .link-btn {
-            background: rgba(255,255,255,0.45);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(10, 0, 18, 0.55);
+            border: 1px solid rgba(120, 0, 200, 0.18);
+
+            /* Sombra premium: profunda, difusa, nada brillante */
+            box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+
             padding: 15px 20px;
             text-decoration: none;
-            color: #111;
+            color: #e8dcff;
             font-size: 1.05rem;
             border-radius: 18px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border: 1px solid rgba(0,0,0,0.05);
+
             transition: transform .22s ease, background .22s ease, opacity .22s ease, box-shadow .22s ease;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
         .link-btn:hover {
-            transform: translateY(-3px);
-            background: rgba(255,255,255,0.65);
-            box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            background: rgba(25, 0, 45, 0.75);
+            border-color: rgba(140, 0, 230, 0.28);
+            box-shadow: 0 8px 26px rgba(0,0,0,0.55);
         }
 
         .icon-label {
@@ -147,20 +144,26 @@
         }
 
         .meta {
-            opacity: 0.5;
+            opacity: 0.68;
+            color: #cfc0ff;
             font-size: 0.9rem;
+        }
+
+        /* FOOTER — más visible, más fino, más “marca seria” */
+        footer {
+            text-align:center;
+            margin-top:32px;
+            opacity:0.65;
+            font-size:0.9rem;
+            color: #d8cfff;
+            letter-spacing: 0.4px;
         }
 
         @media (max-width: 480px) {
             body { padding: 35px 16px; }
-
             .title { font-size: 1.35rem; }
             .subtitle { font-size: 0.95rem; }
-
-            .link-btn {
-                font-size: 0.98rem;
-                padding: 14px 16px;
-            }
+            .link-btn { font-size: 0.98rem; padding: 14px 16px; }
         }
     </style>
 </head>
@@ -172,6 +175,7 @@
             <img src="Media/avatartion.png" alt="Profile" class="profile-img" />
 
             <div class="title">CS Graduate | Mechatronics Eng. Student</div>
+
             <div class="subtitle">
                 I am fascinated by Formula 1 and the purpose of biomedical technology; both remind me that progress is in the details.
             </div>
@@ -180,7 +184,6 @@
         </div>
 
         <div class="section links-section">
-
             <a href="https://www.threads.com/@itsaugvst0x01" class="link-btn" target="_blank">
                 <div class="icon-label"><i class="fa-brands fa-threads"></i> Threads</div>
                 <span class="meta">@itsaugvst0x01</span>
@@ -205,10 +208,9 @@
                 <div class="icon-label"><i class="fa-brands fa-youtube"></i> YouTube</div>
                 <span class="meta">@itsaugvst0x01</span>
             </a>
-
         </div>
 
-        <footer style="text-align:center; margin-top:32px; opacity:0.55; font-size:0.85rem; padding-bottom:6px;">
+        <footer>
             © 2025 itsaugvst0x01 — MIT License
         </footer>
 
